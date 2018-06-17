@@ -1,9 +1,7 @@
-'use strict'
-
 const Schema = use('Schema')
 
 class TokensSchema extends Schema {
-  up () {
+  up() {
     this.create('tokens', (table) => {
       table.increments()
       table.integer('user_id').unsigned().references('id').inTable('users')
@@ -14,7 +12,7 @@ class TokensSchema extends Schema {
     })
   }
 
-  down () {
+  down() {
     this.drop('tokens')
   }
 }
