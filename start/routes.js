@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +13,12 @@
 |
 */
 
-const Route = use('Route')
+const Route = use('Route');
 
-Route.on('/').render('welcome')
+Route.get('/', () => 'Server is running');
+
+Route.post('login', 'UserController.login').validator('LoginUser');
+Route.post('register', 'UserController.register').validator('RegisterUser');
+Route.get('user', 'UserController.user');
+
+Route.get('users/:id', 'UserController.show').middleware('auth');
