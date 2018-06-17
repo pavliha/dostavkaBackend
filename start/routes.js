@@ -19,8 +19,9 @@ Route.get('/', () => 'Server is running');
 
 Route.post('login', 'UserController.login').validator('LoginUser');
 Route.post('register', 'UserController.register').validator('RegisterUser');
-Route.get('user', 'UserController.user');
+Route.get('user', 'UserController.user')
 
 Route.get('users/:id', 'UserController.show').middleware('auth');
 
 Route.resource('cargo', 'CargoController').middleware('auth');
+Route.resource('upload', 'UploadController');
