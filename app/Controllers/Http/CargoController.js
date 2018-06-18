@@ -22,6 +22,8 @@ class CargoController {
   async store({ request, auth }) {
     const data = request.all()
 
+    if (!data.pictures) data.pictures = []
+
     const from = await Location.create(data.from)
     const to = await Location.create(data.to)
 
